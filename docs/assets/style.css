@@ -1,0 +1,52 @@
+body {
+  font-family: sans-serif;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  min-height: calc(100vh - 2rem);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 1rem;
+}
+
+header {
+  background-image: url(https://clouduboy.org/clouduboy-logo.png);
+  background-size: 3rem;
+  background-position: 1rem center;
+  padding: .2rem 0 .2rem 4.75rem ;
+  background-repeat: no-repeat;
+  background-color: #a0a0fe;
+  border-radius: 1rem;
+  color: white;
+  height: 5rem;
+  flex: 0;
+  flex-basis: 100vw;
+  margin-bottom: 1rem;
+}
+
+nav {
+  background-color: #a0a0fe;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+nav ul li {
+  line-height: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover, nav a:focus {
+  color: #eddd31;
+}
+
+main {
+  padding-left: 2rem;
+}
