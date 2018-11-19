@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Clouduboy Docs</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body>
+    <header><h1 class="pagetitle">Clouduboy Docs</h1></header>
+
+    <nav class="pagenav">
+      <ul>
+        <li><a href="/clear.html">clear</a></li>
+        <li><a href="/colors.html">colors</a></li>
+        <li><a href="/coordinates.html">coordinates</a></li>
+        <li><a href="/drawing.html">drawing</a></li>
+        <li><a href="/drawing-sprites.html">drawing-sprites</a></li>
+        <li><a href="/drawing-text.html">drawing-text</a></li>
+        <li><a href="/framerate.html">framerate</a></li>
+        <li><a href="/gfx.html">gfx</a></li>
+        <li><a href="/globals.html">globals</a></li>
+        <li><a href="/index.html">index</a></li>
+        <li><a href="/loop.html">loop</a></li>
+        <li><a href="/microcanvas.html">microcanvas</a></li>
+        <li><a href="/reset.html">reset</a></li>
+        <li><a href="/screen.html">screen</a></li>
+        <li><a href="/setup.html">setup</a></li>
+        <li><a href="/sfx.html">sfx</a></li>
+        <li><a href="/sprites.html">sprites</a></li>
+        <li><a href="/variables.html">variables</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1 id="microcanvas">MicroCanvas</h1>
+      <p>
+        MicroCanvas is a JavaScript library aimed at enhancing the HTML5
+        <code>&lt;canvas&gt;</code> with a few nifty features to make it easier
+        for someone to create self-contained, retro-style pixelart games, while
+        keeping the original canvas functions and development experience intact.
+      </p>
+      <h2 id="getting-started">Getting started</h2>
+      <p>
+        The easiest way to start using the MicroCanvas library is to simply
+        include it from the Clouduboy site or GitHub CDN:
+      </p>
+      <pre><code class="language-html">  &lt;script src="//clouduboy.github.io/microcanvas/microcanvas.js"&gt;&lt;/script&gt;</code></pre>
+      <p>or</p>
+      <pre><code class="language-html">  &lt;script src="//s.clouduboy.org/microcanvas.js"&gt;&lt;/script&gt;</code></pre>
+      <p>
+        Including the MicroCanvas script in the webpage like this will create a
+        new <code>MicroCanvas</code> global object on the window -- you can use
+        this global object to access the functionality provided by MicroCanvas
+      </p>
+      <blockquote>
+        <p>
+          <strong>NOTE:</strong><br />You may also include MicroCanvas as an ES6
+          module. This feature is work-in-progress, but allows you to avoid
+          having to expose the MicroCanvas object as a global on the window
+          object.
+        </p>
+      </blockquote>
+      <p>
+        After you have included the MicroCanvas library in your game script
+        file, you create the MicroCanvas global instance that you will be using
+        throughout the rest of the code to refer to the game canvas:
+      </p>
+      <pre><code class="language-javascript">const game = new MicroCanvas();</code></pre>
+      <p>
+        You may choose whatever name you want for your MicroCanvas instance, but
+        <code>game</code> is a frequently used and straightforward choice, we
+        recommend sticking with it.
+      </p>
+      <p>
+        MicroCanvas files, by convention, are built of 3 main parts:
+        <a href="/globals">globals</a>, the
+        <a href="/setup"><code>setup</code> function</a> and the
+        <a href="/loop"><code>loop</code> function</a>. The
+        <code>setup</code> function sets up the game, the
+        <code>loop</code> function updates the game and keep the action going,
+        and globals are used to store the game state as well as resources (like
+        sounds and graphics) required for the game. Learn more of each of these
+        in their respective documentation pages.
+      </p>
+    </main>
+
+    <script src="/assets/marked.js"></script>
+    <script src="/assets/md.js"></script>
+  </body>
+</html>

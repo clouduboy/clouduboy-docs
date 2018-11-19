@@ -1,0 +1,34 @@
+{
+  "name": "clouduboy-docs",
+  "version": "0.1.0",
+  "description": "Documentation for Clouduboy and MicroCanvas",
+  "main": "generate.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "jsdom": "^13.0.0",
+    "marked": "^0.5.1",
+    "prettier": "^1.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "node generate && git add docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clouduboy/clouduboy-docs.git"
+  },
+  "keywords": [
+    "clouduboy",
+    "microcanvas",
+    "docs"
+  ],
+  "author": "Flaki <clouduboy@flaki.hu>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/clouduboy/clouduboy-docs/issues"
+  },
+  "homepage": "https://github.com/clouduboy/clouduboy-docs#readme"
+}
