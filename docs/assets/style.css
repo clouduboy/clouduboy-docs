@@ -1,17 +1,40 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/assets/fonts/press-start-2p-v6-latin-ext_latin-regular.woff2') format('woff2'),
+       url('/assets/fonts/press-start-2p-v6-latin-ext_latin-regular.woff') format('woff');
+}
+
+
+
 body {
   font-family: sans-serif;
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 1rem;
 
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:
+    "header header"
+    "nav    main";
+
+  /* keep line lengths at a nice, cozy, readable width */
+  max-width: 72rem;
+
+  /* occupy whole screen */
   min-height: calc(100vh - 2rem);
+
   box-sizing: border-box;
   padding: 0;
   margin: 1rem;
 }
 
 header {
-  background-image: url(https://clouduboy.org/clouduboy-logo.png);
+  /* span the entire top header area */
+  grid-area: header;
+
+  background-image: url(/assets/clouduboy-logo.png);
   background-size: 3rem;
   background-position: 1rem center;
   padding: .2rem 0 .2rem 4.75rem ;
@@ -20,33 +43,171 @@ header {
   border-radius: 1rem;
   color: white;
   height: 5rem;
-  flex: 0;
-  flex-basis: 100vw;
-  margin-bottom: 1rem;
 }
 
 nav {
   background-color: #a0a0fe;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1rem .5rem;
 }
 nav ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 nav ul li {
   line-height: 1.5rem;
+  white-space: nowrap;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  display: block;
+  padding: .5em;
+  border-radius: .66rem;
 }
 nav a:hover, nav a:focus {
+  background-color: #6b6bb0;
   color: #eddd31;
+  outline: none;
 }
+
+
 
 main {
   padding-left: 2rem;
+  line-height: 1.5;
+}
+
+main h1,
+main h2,
+main h3,
+main h4 {
+  font-family: "Press Start 2P", sans-serif;
+  color: #eddd31;
+  text-shadow: 4px 4px black, 0 2px black, 2px 0 black, -2px -2px black, -2px 2px black, 2px -2px black;
+}
+
+main h1 {
+  font-size: 40px;
+}
+main h2 {
+  font-size: 24px;
+}
+main h3 {
+  font-size: 16px;
+  -webkit-text-stroke: 1px black;
+  text-shadow: 2px 2px black;
+}
+
+main code {
+  background: #a0a0fe;
+  color: white;
+  padding: .1em .4em;
+  border-radius: .3em;
+  font-family: monospace;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+main pre {
+  background: #a0a0fe;
+  padding: 1em .5em;
+  border-radius: .5em;
+
+  /* for overflow scrolling, especially on mobile screen sizes */
+  overflow-x:  auto;
+}
+
+main a {
+  text-decoration: none;
+  color: #a0a0fe;
+  font-weight: bold;
+}
+
+main h3 {
+  font-size: 16px;
+}
+main h4 {
+  font-size: 8px;
+}
+
+main code {
+  background: #a0a0fe;
+  color: white;
+  padding: .1em .4em;
+  border-radius: .3em;
+  font-family: monospace;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+main pre {
+  background: #a0a0fe;
+  padding: 1em .5em;
+  border-radius: .5em;
+
+  /* for overflow scrolling, especially on mobile screen sizes */
+  overflow-x:  auto;
+}
+
+main a {
+  text-decoration: none;
+  color: #a0a0fe;
+  font-weight: bold;
+}
+
+
+
+@media (max-width: 32em) {
+  body {
+    grid-template-areas:
+      "header"
+      " nav  "
+      " main ";
+    grid-template-columns: 100%;
+  }
+
+
+  .pagenav {
+    text-align: center;
+    padding: .5em 0;
+  }
+
+  .pagenav:not(.open) {
+    position: relative;
+
+    height: 2rem;
+
+    text-indent: 100vw;
+    overflow: hidden;
+  }
+  .pagenav:not(.open)::before {
+    content: "Navigation";
+    text-indent: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: "Press Start 2P", sans-serif;
+    color: white;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    padding: 0 .5em;
+  }
+  main h1 {
+    font-size: 24px;
+  }
+  main h2 {
+    font-size: 16px;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 2px 2px black;
+  }
 }
