@@ -21,12 +21,15 @@ if (docmain) {
   docmain.innerHTML = contents
 }
 
-let title = ($('h1') || {}).textContent
+
+let title = ($('main h1') || {}).textContent
+if (title) {
+  document.querySelector('title').insertAdjacentHTML('afterbegin', `${title} – `)
+}
+console.log(document.title)
+
 
 save(`docs/${feature}.html`, prettier.format(dom.serialize(), { parser: 'html' }))
-
-console.log(title)
-
 
 
 function load(fn) {
