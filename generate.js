@@ -6,30 +6,7 @@ const { JSDOM } = require('jsdom'),
   prettier = require('prettier')
 
 
-let template = load('templates/index.html')
-let dom = new JSDOM(template),
-  document = dom.window.document,
-  $ = document.querySelector.bind(document)
-
-let feature = 'microcanvas'
-let md = load(`source/${feature}.md`)
-
-let contents = marked(md)
-let docmain = $('main')
-
-if (docmain) {
-  docmain.innerHTML = contents
-}
-
-
-let title = ($('main h1') || {}).textContent
-if (title) {
-  document.querySelector('title').insertAdjacentHTML('afterbegin', `${title} – `)
-}
-console.log(document.title)
-
-
-save(`docs/${feature}.html`, prettier.format(dom.serialize(), { parser: 'html' }))
+sources().forEach(generate)
 
 
 function load(fn) {
@@ -38,4 +15,38 @@ function load(fn) {
 
 function save(fn, contents) {
   fs.writeFileSync(path.join(__dirname, fn), contents)
+}
+
+function sources() {
+  return (
+    fs.readdirSync(path.join(__dirname, 'source'))
+      .filter(f => f.substr(-3) === '.md')
+      .map(f => path.basename(f, '.md'))
+  )
+}
+
+function generate(feature) {
+  let template = load('templates/index.html') // TODO: do not reload unnecessarily
+  let dom = new JSDOM(template),
+    document = dom.window.document,
+    $ = document.querySelector.bind(document)
+
+  let md = load(`source/${feature}.md`)
+
+  let contents = marked(md)
+  let docmain = $('main')
+
+  if (docmain) {
+    docmain.innerHTML = contents
+  }
+
+
+  let title = ($('main h1') || {}).textContent
+  if (title) {
+    document.querySelector('title').insertAdjacentHTML('afterbegin', `${title} – `)
+  }
+  console.log(document.title)
+
+
+  save(`docs/${feature}.html`, prettier.format(dom.serialize(), { parser: 'html' }))
 }
