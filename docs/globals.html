@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Globals – Clouduboy Docs</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body>
+    <header><h1 class="pagetitle">Clouduboy Docs</h1></header>
+
+    <nav class="pagenav">
+      <ul>
+        <li><a href="/clear">clear</a></li>
+        <li><a href="/colors">colors</a></li>
+        <li><a href="/coordinates">coordinates</a></li>
+        <li><a href="/drawing">drawing</a></li>
+        <li><a href="/drawing-sprites">drawing-sprites</a></li>
+        <li><a href="/drawing-text">drawing-text</a></li>
+        <li><a href="/framerate">framerate</a></li>
+        <li><a href="/gfx">gfx</a></li>
+        <li><a href="/globals">globals</a></li>
+        <li><a href="/index">index</a></li>
+        <li><a href="/loop">loop</a></li>
+        <li><a href="/microcanvas">microcanvas</a></li>
+        <li><a href="/reset">reset</a></li>
+        <li><a href="/screen">screen</a></li>
+        <li><a href="/setup">setup</a></li>
+        <li><a href="/sfx">sfx</a></li>
+        <li><a href="/sprites">sprites</a></li>
+        <li><a href="/variables">variables</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1 id="globals">Globals</h1>
+      <p>
+        MicroCanvas uses globals to store the game state, as well as the assets
+        (graphics, sounds) and functions (code) required to run your game.
+      </p>
+      <h2 id="why-globals-">Why globals?</h2>
+      <p>
+        MicroCanvas usually needs to deal with severely limited hardware
+        configurations that do not allow for abundant memory allocations and
+        large codebases. This both limits the practical size of MicroCanvas
+        programs, and makes it rather impractical to use dynamically allocated
+        memory (as this would degrade performance and risk crashes on devices
+        with really small memory footprint, such as the Arduboy).
+      </p>
+      <h2 id="global-variables">Global variables</h2>
+      <h2 id="assets">Assets</h2>
+      <h2 id="global-functions">Global functions</h2>
+    </main>
+
+    <script src="/assets/marked.js"></script>
+  </body>
+</html>
