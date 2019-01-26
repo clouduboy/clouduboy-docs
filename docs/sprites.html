@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sprites – Clouduboy Docs</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body>
+    <header><h1 class="pagetitle">Clouduboy Docs</h1></header>
+
+    <nav class="pagenav">
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/gfx">gfx</a></li>
+        <li><a href="/globals">globals</a></li>
+        <li><a href="/loop">loop</a></li>
+        <li><a href="/microcanvas">microcanvas</a></li>
+        <li><a href="/setup">setup</a></li>
+        <li><a href="/sprites">sprites</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1 id="sprites">Sprites</h1>
+      <p>
+        MicroCanvas uses the
+        <a
+          href="https://github.com/clouduboy/microcanvas-pixeldata/#microcanvas-pixeldata"
+          >PixelData Image Format</a
+        >
+        (or PIF, for short), a JavaScript library developed in parallel to
+        MicroCanvas for creating and embedding graphics into the MicroCanvas
+        applications.
+      </p>
+      <h2 id="the-pixeldata-format">The PixelData format</h2>
+      <p>
+        PIF is an easy-to-use text-based image format that makes it possible to
+        embed graphics straight into the source code itself, in the meantime
+        making the graphics easily modifiable without the need for special
+        tools.
+      </p>
+      <p>
+        The PIF format also supports multi-frame sprites to make embedding
+        animations into MicroCanvas apps easier.
+      </p>
+      <h2 id="the-pif-library">The PIF library</h2>
+      <p>
+        The PixelData Image Format library comes with an extensive toolbelt of
+        additional tools for previewing, creating and sharing graphics created
+        in the PIF format, as well as built-in support in Clouduboy for
+        converting the file format into binary formats understandable by the
+        underlying microcontroller platforms.
+      </p>
+      <h3 id="the-pixeldata-explorer">The PixelData Explorer</h3>
+      <p>
+        The library comes with a bunch of examples which can be viewed in the
+        <a href="//create.clouduboy.org/explorer/">PixelData Explorer</a>. The
+        Explorer can also be used to live-edit the textual format and preview
+        its rendered output.
+      </p>
+      <h3 id="the-clouduboy-painter">The Clouduboy Painter</h3>
+      <p>
+        The <a href="//create.clouduboy.org/painter/">Clouduboy Painter</a> is a
+        web app that makes creating PIF sprites a breeze. It runs in any browser
+        (desktop or mobile) and allows drawing, editing and transforming of
+        PixelData sprites. It supports multi-frame sprites and color images and
+        can import and export into the PIF image format as well as generate
+        easy-to-share links for sharing the creations made with it.
+      </p>
+    </main>
+
+    <script src="/assets/marked.js"></script>
+  </body>
+</html>

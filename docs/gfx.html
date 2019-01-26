@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Graphics – Clouduboy Docs</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body>
+    <header><h1 class="pagetitle">Clouduboy Docs</h1></header>
+
+    <nav class="pagenav">
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/gfx">gfx</a></li>
+        <li><a href="/globals">globals</a></li>
+        <li><a href="/loop">loop</a></li>
+        <li><a href="/microcanvas">microcanvas</a></li>
+        <li><a href="/setup">setup</a></li>
+        <li><a href="/sprites">sprites</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1 id="graphics">Graphics</h1>
+      <p>
+        One of the most important feature of MicroCanvas is displaying and
+        manipulating pixelart graphics. As MicroCanvas's target architectures
+        are usually only equipped with low-density screens (with sizes of maybe
+        a hundred or so pixels on each side) with limited color options, the
+        traditional image and graphics usecases of the web and the HTML5 canvas
+        don't work well here.
+      </p>
+      <h2 id="sprites">Sprites</h2>
+      <p>
+        MicroCanvas uses the
+        <a
+          href="https://github.com/clouduboy/microcanvas-pixeldata/#microcanvas-pixeldata"
+          >PixelData Image Format</a
+        >
+        (or PIF, for short) for embedding graphics into MicroCanvas apps.
+      </p>
+      <pre><code>! invader 9x8
+.........
+..#...#..
+...#.#...
+.#######.
+##.###.##
+#########
+#.#.#.#.#
+.........</code></pre>
+      <p>
+        To learn more about PixelData sprites, refer to the
+        <a href="/sprites">Sprites section</a>
+      </p>
+      <h2 id="loading-graphics">Loading graphics</h2>
+      <p>
+        You may use the <code>loadGraphics</code> method on the main MicroCanvas
+        <code>game</code> object to load sprites:
+      </p>
+      <pre><code class="language-js">const gfxMySprite = game.loadGraphics("image_data_goes_here")</code></pre>
+      <p>
+        By convention, variable names of loaded graphics start with the
+        <code>gfx</code> prefix. Graphics loading happens on the global scope
+        (at the top of your code), or in the
+        <a href="/setup"><code>setup()</code></a> method, but all variable names
+        that store graphics objects need to be declared globally (so, once
+        loaded, they are accessible anywhere in your code).
+      </p>
+      <p>
+        You can pass in any graphics data that is understood by the library, and
+        your sprite object will be returned, synchronously.
+      </p>
+      <p>
+        It is customary to use backticks (```) to embed multi-line PIF strings
+        into the code itself to be loaded as graphics as the game loads.
+      </p>
+      <h2 id="using-graphics">Using graphics</h2>
+      <h3 id="sprite-dimensions">Sprite dimensions</h3>
+      <h3 id="frames">Frames</h3>
+    </main>
+
+    <script src="/assets/marked.js"></script>
+  </body>
+</html>
