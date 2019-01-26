@@ -6,7 +6,11 @@ const { JSDOM } = require('jsdom'),
   prettier = require('prettier')
 
 
-sources().forEach(generate)
+const sourceList = sources()
+
+const nav = navigation(sourceList)
+
+sourceList.forEach(src => generate({ nav, src }))
 
 
 function load(fn) {
@@ -25,13 +29,27 @@ function sources() {
   )
 }
 
-function generate(feature) {
+function navigation(sourceList) {
+  return sourceList.map(
+    src => `<li><a href="/${src}">${src}</a></li>`
+  ).join('\n')
+}
+
+function generate({ nav, src }) {
   let template = load('templates/index.html') // TODO: do not reload unnecessarily
   let dom = new JSDOM(template),
     document = dom.window.document,
     $ = document.querySelector.bind(document)
 
-  let md = load(`source/${feature}.md`)
+
+  // Generate navigation
+  let navlist = $('.pagenav ul')
+
+  navlist.insertAdjacentHTML('beforeend', nav)
+
+
+  // Generate main content
+  let md = load(`source/${src}.md`)
 
   let contents = marked(md)
   let docmain = $('main')
@@ -48,5 +66,5 @@ function generate(feature) {
   console.log(document.title)
 
 
-  save(`docs/${feature}.html`, prettier.format(dom.serialize(), { parser: 'html' }))
+  save(`docs/${src}.html`, prettier.format(dom.serialize(), { parser: 'html' }))
 }
